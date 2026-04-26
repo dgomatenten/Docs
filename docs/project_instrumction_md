@@ -1,0 +1,42 @@
+Based on the article "AI-Driven Development Methods Diverge, but the Essence Converges" by ko1-ino, I have developed a Markdown guide. This guide structures the project construction flow by integrating Prompt, Context, and Harness engineering into a cohesive workflow.
+Guide: Constructing an AI-Driven Development Project
+This document outlines the framework for building a software project optimized for AI-driven development, based on the principles of Input Design, Process Design, and Output Validation.
+1. Project Foundation: The Three Engineering Pillars
+To construct your project effectively, you must address three layers of evolution in AI interaction:
+Prompt Engineering: Designing high-quality instructions.
+Context Engineering: Curating the "context window" (which files and rules to provide).
+Harness Engineering: Implementing automated mechanical checks (Linters, CLI, Tests) to validate AI output in real-time.
+2. Structural Design (SSOT & Indexing)
+Avoid duplicate documentation. Define your Single Source of Truth (SSOT) within the code to maximize AI efficiency.
+A. The "DocComment" Approach
+Instead of separate specification files, use detailed block comments above methods. This acts as an "index" for the AI to find and understand logic quickly.
+Action: Define ubiquitous language (project-specific terms) within these comments to help AI agents perform "Agentic Search."
+B. Implementation Plans
+Action: Create "Implementation Plans" (Design Docs) for complex tasks, but do not version control them.
+Reasoning: Once implemented, they become technical debt. Attach them to Pull Requests or Issue comments instead.
+3. Context Design: The Principle of "Subtraction"
+Do not feed the AI every file in the project. Excess context leads to hallucinations and high token costs.
+Output-Driven Selection: Only provide files directly related to the specific output you want.
+Minimum Context Principle: Start with a "zero-base" (empty context) and add only what the AI specifically needs to understand the immediate task.
+4. Implementation Workflow: Harness Engineering
+Shift from "trusting the AI" to "mechanically verifying the AI."
+Step 1: Define the "Harness"
+Before generating code, ensure you have:
+Type Definitions: Use TypeScript or similar strongly typed languages to provide a structural "mold."
+Automated Linters: Configured to catch stylistic or syntax errors immediately.
+Local Test Suites: Scripts that the AI (or user) can run to verify logic instantly.
+Step 2: The Loop
+Input: Human provides the "Index" (DocComments/Requirements).
+Process: AI generates code within the "Harness."
+Validation: Human/CLI runs the Harness. If it fails, the AI iterates based on the error logs.
+5. Review & Quality Assurance
+As development speed increases, the bottleneck shifts to the review process.
+Review the "Plan" first: Review the implementation plan before the AI writes the code.
+AI-to-AI Review: Use a second AI (e.g., a different model) to perform a first-pass review of the generated code against the original requirements.
+Human Focus: Humans should focus on domain logic and architectural integrity, not syntax.
+6. Summary Checklist for Project Kickoff
+[ ] Establish Coding Standards: Document these in a .cursorrules or similar configuration file for the AI.
+[ ] Define Ubiquitous Language: Ensure the team and the AI use the same terms for business logic.
+[ ] Set up the Harness: Install Linters, Formatters, and Unit Test frameworks.
+[ ] Adopt DocComment Standard: Agree on a format for in-code specifications.
+[ ] Iterative Mindset: Treat the AI workflow as an agile process that needs "Continuous Improvement."
