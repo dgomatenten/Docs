@@ -1,9 +1,9 @@
-# Kinetic MD Viewer — example Django integration
+# MD Viewer — example Django integration
 """
 Add to your Django project:
 
-1. pip install kinetic-md-viewer django
-2. Add kinetic template dir to TEMPLATES in settings.py
+1. pip install md-viewer django
+2. Add mdviewer template dir to TEMPLATES in settings.py
 3. Include the URL patterns in urls.py (see below)
 """
 
@@ -21,14 +21,14 @@ urlpatterns = [
 ]
 
 # ── settings.py additions ─────────────────────────────────────────────────
-# In your TEMPLATES setting, add the kinetic templates dir:
+# In your TEMPLATES setting, add the mdviewer templates dir:
 #
-# import kinetic
+# import mdviewer
 # import pathlib
-# KINETIC_TMPL = str(pathlib.Path(kinetic.__file__).parent / "templates")
+# MDVIEWER_TMPL = str(pathlib.Path(mdviewer.__file__).parent / "templates")
 #
 # TEMPLATES = [{
 #     "BACKEND": "django.template.backends.django.DjangoTemplates",
-#     "DIRS": [KINETIC_TMPL],
+#     "DIRS": [MDVIEWER_TMPL],
 #     ...
 # }]

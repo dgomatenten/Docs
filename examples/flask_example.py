@@ -1,4 +1,4 @@
-# Kinetic MD Viewer — example Flask integration
+# MD Viewer — example Flask integration
 from flask import Flask
 from mdviewer.flask_ext import create_blueprint
 
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     sample.mkdir(exist_ok=True)
     (sample / "README.md").write_text("# Welcome\n\nThis is your documentation root.\n")
     (sample / "guide.md").write_text(
-        "# Guide\n\n## Installation\n\nRun `pip install kinetic-md-viewer`.\n\n"
+        "# Guide\n\n## Installation\n\nRun `pip install md-viewer`.\n\n"
         "## Usage\n\nImport and register the blueprint.\n"
     )
     print("Flask app running — visit http://127.0.0.1:5000/docs/")

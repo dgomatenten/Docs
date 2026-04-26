@@ -1,4 +1,4 @@
-# Kinetic MD Viewer
+# MD Viewer
 
 A premium Markdown documentation viewer for Python — use it as a **standalone app** or integrate it into **Flask** or **Django**.
 
@@ -31,16 +31,16 @@ pip install -e .
 ### Standalone (CLI)
 
 ```bash
-kinetic-md /path/to/your/docs
+md-viewer /path/to/your/docs
 # or
-python -m kinetic /path/to/your/docs --port 8080 --debug
+python -m mdviewer /path/to/your/docs --port 8080 --debug
 ```
 
 ### Flask Integration
 
 ```python
 from flask import Flask
-from kinetic.flask_ext import create_blueprint
+from mdviewer.flask_ext import create_blueprint
 
 app = Flask(__name__)
 bp = create_blueprint("/path/to/docs")
@@ -53,11 +53,13 @@ if __name__ == "__main__":
 ### Django Integration
 
 ```python
-# settings.py — add kinetic templates directory
-TEMPLATES[0]["DIRS"] += ["/path/to/kinetic/templates"]  # or use installed package
+# settings.py — add mdviewer templates directory
+import mdviewer, pathlib
+MDVIEWER_TMPL = str(pathlib.Path(mdviewer.__file__).parent / "templates")
+TEMPLATES[0]["DIRS"] += [MDVIEWER_TMPL]
 
 # urls.py
-from kinetic.django_ext import get_urlpatterns
+from mdviewer.django_ext import get_urlpatterns
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -68,7 +70,7 @@ urlpatterns = [
 ### Python API
 
 ```python
-from kinetic import MarkdownManager
+from mdviewer import MarkdownManager
 
 manager = MarkdownManager("/path/to/docs")
 
@@ -89,16 +91,16 @@ hits = manager.search("installation")
 ## Project Structure
 
 ```
-kinetic/
+mdviewer/
 ├── __init__.py       # Public API
-├── __main__.py       # python -m kinetic
+├── __main__.py       # python -m mdviewer
 ├── cli.py            # CLI entry point
 ├── manager.py        # Core: file scanning & rendering
 ├── app.py            # Standalone Flask app factory
 ├── flask_ext.py      # Flask Blueprint
 ├── django_ext.py     # Django views & URL patterns
 ├── templates/
-│   └── kinetic/
+│   └── mdviewer/
 │       └── viewer.html
 └── static/
     └── css/

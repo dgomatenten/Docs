@@ -1,6 +1,6 @@
-# Welcome to Kinetic Docs
+# Welcome to MD Viewer Docs
 
-This is a sample documentation directory served by **Kinetic MD Viewer**.
+This is a sample documentation directory served by **MD Viewer**.
 
 ## Features at a glance
 
@@ -14,7 +14,7 @@ This is a sample documentation directory served by **Kinetic MD Viewer**.
 ## Code example
 
 ```python
-from kinetic import create_app
+from mdviewer import create_app
 
 app = create_app("./docs")
 app.run(debug=True)
