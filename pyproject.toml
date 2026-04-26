@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "md-viewer"
+version = "0.1.0"
+description = "A premium Markdown viewer usable as a standalone app and a Flask/Django library."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+keywords = ["markdown", "viewer", "flask", "django", "documentation"]
+dependencies = [
+    "markdown>=3.6",
+    "pymdown-extensions>=10.0",
+    "pygments>=2.17",
+    "flask>=3.0",
+]
+
+[project.optional-dependencies]
+django = ["django>=4.2"]
+dev = ["pytest", "black", "isort"]
+
+[project.scripts]
+md-viewer = "mdviewer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mdviewer*"]
+
+[tool.setuptools.package-data]
+mdviewer = ["templates/**/*", "static/**/*"]
